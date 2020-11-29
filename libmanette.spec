@@ -1,19 +1,19 @@
 Summary:	Simple GObject game controller library
 Summary(pl.UTF-8):	Prosta biblioteka GObject do obsługi manipulatorów do gier
 Name:		libmanette
-Version:	0.2.5
+Version:	0.2.6
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libmanette/0.2/%{name}-%{version}.tar.xz
-# Source0-md5:	c3daf344b7a21d0edf352ab0f8d891ac
-URL:		https://gitlab.gnome.org/aplazas/libmanette
+Source0:	https://download.gnome.org/sources/libmanette/0.2/%{name}-%{version}.tar.xz
+# Source0-md5:	d23b7e3287b1c67c16ac74dcc27e0814
+URL:		https://gnome.pages.gitlab.gnome.org/libmanette/
 BuildRequires:	glib2-devel >= 1:2.50
 BuildRequires:	libevdev-devel >= 1.4.5
-BuildRequires:	meson >= 0.47.0
+BuildRequires:	meson >= 0.53.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.736
+BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	udev-glib-devel >= 1:1.0
 BuildRequires:	xz
@@ -73,6 +73,7 @@ Summary(pl.UTF-8):	API języka Vala do biblioteki libmanette
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala
+%{?noarchpackage}
 
 %description -n vala-libmanette
 Vala API for libmanette library.
