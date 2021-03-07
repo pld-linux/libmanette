@@ -73,7 +73,7 @@ Summary(pl.UTF-8):	API języka Vala do biblioteki libmanette
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description -n vala-libmanette
 Vala API for libmanette library.
