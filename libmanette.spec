@@ -1,12 +1,16 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# static library
+
 Summary:	Simple GObject game controller library
 Summary(pl.UTF-8):	Prosta biblioteka GObject do obsługi manipulatorów do gier
 Name:		libmanette
-Version:	0.2.6
+Version:	0.2.7
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	https://download.gnome.org/sources/libmanette/0.2/%{name}-%{version}.tar.xz
-# Source0-md5:	d23b7e3287b1c67c16ac74dcc27e0814
+# Source0-md5:	ce84d1585017d0e75743b6f246977ee1
 URL:		https://gnome.pages.gitlab.gnome.org/libmanette/
 BuildRequires:	glib2-devel >= 1:2.50
 BuildRequires:	libevdev-devel >= 1.4.5
@@ -67,6 +71,18 @@ Header files for libmanette library.
 %description devel -l pl.UTF-8
 Pliki nagłówkowe biblioteki libmanette.
 
+%package static
+Summary:	Static libmanette library
+Summary(pl.UTF-8):	Statyczna biblioteka libmanette
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+Static libmanette library.
+
+%description static -l pl.UTF-8
+Statyczna biblioteka libmanette.
+
 %package -n vala-libmanette
 Summary:	Vala API for libmanette library
 Summary(pl.UTF-8):	API języka Vala do biblioteki libmanette
@@ -85,7 +101,8 @@ API języka Vala do biblioteki libmanette.
 %setup -q
 
 %build
-%meson build
+%meson build \
+	%{!?with_static_libs:--default-library=shared}
 
 %ninja_build -C build
 
@@ -113,6 +130,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libmanette
 %{_datadir}/gir-1.0/Manette-0.2.gir
 %{_pkgconfigdir}/manette-0.2.pc
+
+%if %{with static_libs}
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/libmanette-0.2.a
+%endif
 
 %files -n vala-libmanette
 %defattr(644,root,root,755)
