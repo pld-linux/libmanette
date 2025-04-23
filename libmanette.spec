@@ -6,12 +6,12 @@
 Summary:	Simple GObject game controller library
 Summary(pl.UTF-8):	Prosta biblioteka GObject do obsługi manipulatorów do gier
 Name:		libmanette
-Version:	0.2.11
+Version:	0.2.12
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	https://download.gnome.org/sources/libmanette/0.2/%{name}-%{version}.tar.xz
-# Source0-md5:	1f9ebb6a8f56e458e4ee8db4d97067ec
+# Source0-md5:	7c291e9fb7e740863461339e4de27c45
 URL:		https://gnome.pages.gitlab.gnome.org/libmanette/
 %{?with_apidocs:BuildRequires:	gi-docgen >= 2021.1}
 BuildRequires:	glib2-devel >= 1:2.50
